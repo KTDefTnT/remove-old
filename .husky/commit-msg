@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+# Load nvm 若存在nvm，则必须先加载nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo $1
+echo `husky-params: "$HUSKY_GIT_PARAM"`
+
+#--no-install 参数表示强制npx使用项目中node_modules目录中的commitlint包
+npx --no-install commitlint -e $1
