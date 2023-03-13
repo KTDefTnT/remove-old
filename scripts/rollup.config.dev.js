@@ -1,19 +1,19 @@
 // npm install -D rollup-plugin-serve rollup-plugin-livereload
-import baseConfig from './rollup.config.base.js'
-import serve from 'rollup-plugin-serve'
-import livereload from 'rollup-plugin-livereload'
+const baseConfig = require("./rollup.config.base.js");
+const serve = require("rollup-plugin-serve");
+const livereload = require("rollup-plugin-livereload");
 
-export default {
+module.exports = {
   ...baseConfig,
   plugins: [
     ...baseConfig.plugins,
     serve({
       port: 8080,
-      contentBase: ['dist', 'examples/brower'],
-      openPage: 'index.html',
+      contentBase: ["dist", "examples/brower"],
+      openPage: "index.html",
     }),
     livereload({
-      watch: 'examples/brower',
-    })
-  ]
-}
+      watch: "examples/brower",
+    }),
+  ],
+};

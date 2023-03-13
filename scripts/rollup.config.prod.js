@@ -1,11 +1,8 @@
 // npm install -D rollup-plugin-filesize
-import baseConfig from './rollup.config.base.js'
-import filesize from 'rollup-plugin-filesize'
+const baseConfig = require("./rollup.config.base.js");
+const filesize = require("rollup-plugin-filesize");
 
-export default {
+module.exports = {
   ...baseConfig,
-  plugins: [
-    ...baseConfig.plugins,
-    filesize()
-  ]
-}
+  plugins: [...baseConfig.plugins, filesize()],
+};

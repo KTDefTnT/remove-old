@@ -1,21 +1,21 @@
 // 公共配置
 // 需要安装的npm包
 // npm install -D rollup @rollup/plugin-node-resolve @rollup/plugin-commonjs @rollup/plugin-alias @rollup/plugin-replace @rollup/plugin-eslint @rollup/plugin-babel rollup-plugin-terser rollup-plugin-clear @rollup/plugin-json
-import { nodeResolve } from "@rollup/plugin-node-resolve"; // 解析 node_modules 中的模块
-import commonjs from "@rollup/plugin-commonjs"; // cjs => esm
-import alias from "@rollup/plugin-alias"; // alias 和 reslove 功能
-import replace from "@rollup/plugin-replace";
-import eslint from "@rollup/plugin-eslint";
-import { babel } from "@rollup/plugin-babel";
-import { terser } from "rollup-plugin-terser";
-import clear from "rollup-plugin-clear";
-import json from "@rollup/plugin-json"; // 支持在源码中直接引入json文件，不影响下面的
-import { readFileSync } from "fs";
+const { nodeResolve } = require("@rollup/plugin-node-resolve"); // 解析 node_modules 中的模块
+const commonjs = require("@rollup/plugin-commonjs"); // cjs => esm
+const alias = require("@rollup/plugin-alias"); // alias 和 reslove 功能
+const replace = require("@rollup/plugin-replace");
+const eslint = require("@rollup/plugin-eslint");
+const { babel } = require("@rollup/plugin-babel");
+const { terser } = require("rollup-plugin-terser");
+const clear = require("rollup-plugin-clear");
+const json = require("@rollup/plugin-json"); // 支持在源码中直接引入json文件，不影响下面的
+const { readFileSync } = require("fs");
 const { name, version, author } = JSON.parse(
   readFileSync("package.json", { encoding: "utf8" })
 );
 
-const pkgName = "removeOld";
+const pkgName = "remove-old-file";
 // 打包处理的文件，添加的备注信息
 const banner =
   "/*!\n" +
@@ -24,7 +24,7 @@ const banner =
   " * Released under the MIT License.\n" +
   " */";
 
-export default {
+module.exports = {
   input: "src/index.js",
   // 同时打包多种规范的产物
   output: [

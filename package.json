@@ -1,12 +1,17 @@
 {
-  "name": "removeOld",
+  "name": "remove-old-file",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "用于批量删除重复文件夹",
+  "main": "src/index.js",
+  "bin": {
+    "extra-remove": "bin/index.js"
+  },
   "scripts": {
     "dev": "rollup -w --environment NODE_ENV:development -c scripts/rollup.config.dev.js",
     "build": "rollup --environment NODE_ENV:development -c scripts/rollup.config.prod.js",
-    "prepare": "husky install & chmod a+x .husky/*"
+    "prepare": "husky install & chmod a+x .husky/*",
+    "commit": "git-cz",
+    "release": "release-it"
   },
   "lint-staged": {
     "src/**/*.js|jsx": [
@@ -14,14 +19,20 @@
     ]
   },
   "keywords": [],
-  "author": "",
+  "files": [
+    "dist"
+  ],
+  "author": "Rebekah Hu",
   "license": "ISC",
+  "homepage": "https://github.com/KTDefTnT/remove-old",
+  "repository": "https://github.com/KTDefTnT/remove-old.git",
   "devDependencies": {
     "@babel/core": "^7.21.0",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/preset-env": "^7.20.2",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@release-it/conventional-changelog": "^5.1.1",
     "@rollup/plugin-alias": "^4.0.3",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
@@ -36,6 +47,7 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.4",
+    "release-it": "^15.8.0",
     "rollup": "^3.19.1",
     "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-filesize": "^10.0.0",
